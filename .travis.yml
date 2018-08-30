@@ -1,8 +1,3 @@
-sudo: false
-language: generic
-git:
-  submodules: false
-
 matrix:
   include:
     - env: CXX=g++-5 CC=gcc-5
@@ -20,22 +15,9 @@ matrix:
             - clang-3.8
           sources: *sources
 
-install:
-  - export PATH="$HOME/bin:$PATH"
-  -
-  - mkdir ~/bin
-  - wget --no-check-certificate --no-clobber -O /tmp/tools/waf https://waf.io/waf-1.8.14 || true
-  - install -t ~/bin /tmp/tools/waf
 
-before_script:
-  - git submodule update --init --recursive
+
 
 script:
-  - waf configure
-  - waf
-  - build/cpponfig_test
+  -make
 
-cache:
-  apt: true
-  directories:
-- /tmp/tools
