@@ -1,2 +1,2 @@
-hellomake: main.c
-	gcc -o hellomake main.c -I.
+hellomake: main.cpp
+	gcc -o hellomake main.cpp -I.
